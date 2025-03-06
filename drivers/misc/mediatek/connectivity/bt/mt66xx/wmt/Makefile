@@ -12,11 +12,11 @@ ifndef TOP
     TOP := $(srctree)/..
 endif
 
-#ifneq ($(CFG_BT_PM_QOS_CONTROL),)
-#    ccflags-y += -D PM_QOS_CONTROL=1
-#else
-#    ccflags-y += -D PM_QOS_CONTROL=0
-#endif
+ifneq ($(CFG_BT_PM_QOS_CONTROL),)
+   ccflags-y += -D PM_QOS_CONTROL=1
+else
+   ccflags-y += -D PM_QOS_CONTROL=0
+endif
 
 # Force build fail on modpost warning
 KBUILD_MODPOST_FAIL_ON_WARNINGS := y
@@ -39,7 +39,7 @@ endif
 ccflags-y += -D MTK_WCN_WMT_STP_EXP_SYMBOL_ABSTRACT
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat
-#ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/mt$(BT_PLATFORM)/include
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/mt$(BT_PLATFORM)/include
 
 ifeq ($(CONFIG_MTK_CONN_LTE_IDC_SUPPORT),y)
     ccflags-y += -D WMT_IDC_SUPPORT=1
