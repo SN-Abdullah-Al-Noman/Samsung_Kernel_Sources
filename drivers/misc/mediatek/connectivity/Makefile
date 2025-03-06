@@ -147,7 +147,6 @@ endif
         else
             PATH_TO_BT_DRV       = /drivers/misc/mediatek/connectivity/bt/mt66xx/wmt
         endif
-        
         ABS_PATH_TO_BT_DRV       = $(srctree)/../$(PATH_TO_BT_DRV)
         $(shell unlink $(srctree)/$(src)/bt)
         $(shell ln -s $(ABS_PATH_TO_BT_DRV)      $(srctree)/$(src)/bt)
